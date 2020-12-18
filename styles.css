@@ -1,0 +1,54 @@
+/* Custom properties/variables  */
+:root {
+  --deep-blue: #1f00a8;
+  --trim-gold: #cfb000;
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+  background-image: url(utils/imgs/remy_loz-3S0INpfREQc-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  text-align: center;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: var(--deep-blue);
+  /* top: 0;
+  left: 0; */
+  /* background: var(--deep-blue);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4); */
+  /* z-index: 10; */
+}
+
+#welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(utils/imgs/remy_loz-3S0INpfREQc-unsplash.jpg);
+}
+
+#projects {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--deep-blue);
+}
