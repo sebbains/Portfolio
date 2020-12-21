@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sebastian Bains</title>
+    <title>Seb Bains</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <ul id="menu">
                 <li><a href="#welcome">Welcome</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="blog">Blog</a></li>
@@ -19,11 +19,21 @@
         </nav>
     </header>
     <main>
-        <section id="welcome">
-            <p>Hi I'm Seb</p>
-            <h1>a Frontend Web Developer in London, UK ;)</h1>
-            <p>Learn more of what I do</p>
-        </section>
+        <div id="welcomeContainer">
+            <section id="welcome">
+                <div id="intro">
+                    <h1>
+                        <p>Hi, I'm Seb</p>
+                        <p>a Frontend Web Developer</p>
+                        <p>from London, UK ;)</p>
+                    </h1>
+                </div>
+                <div id="continue">
+                    <p>Learn more of what I do</p>
+                    <p>&darr;</p>
+                </div>
+            </section>
+        </div>
 
         <section id="projects">
 
