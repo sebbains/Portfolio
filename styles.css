@@ -3,15 +3,10 @@
 
 /* Custom properties/variables  */
 :root {
-  --royal-navy: #002366;
-  --deep-blue: #1c1f2e;
-  --deep-gold: #cfb000;
-
-  --highlight-white: #f1f1f3;
-  --trim-gold: #cea434;
-  --primary-blue: #193153;
-  --secondary-blue: #122948;
-  --darkest-blue: #122948;
+  --background-white: #faf9f9;
+  --highlight-gold: #fcad08;
+  --deep-navy: #003049;
+  --subtle-grey: #dee2e6;
 }
 
 /* Base reset */
@@ -22,14 +17,19 @@
 
 html {
   box-sizing: border-box;
-  font-family: "Martel", serif;
-  color: var(--highlight-white);
-  background-color: var(--darkest-blue);
+  font-family: "Lora", serif;
+  color: var(--background-white);
+  background-color: var(--background-white);
   text-align: center;
 }
 
-h1 {
+h1,
+h2 {
   font-weight: 100;
+}
+
+h2 {
+  color: var(--deep-navy);
 }
 
 /* Navigation bar */
@@ -37,8 +37,8 @@ nav {
   position: fixed;
   width: 100%;
   height: 50px;
-  background-color: var(--secondary-blue);
-  box-shadow: 0 2px 0 var(--trim-gold);
+  /* background-color: var(--subtle-grey); */
+  /* box-shadow: 0 2px 0 var(--highlight-red); */
   z-index: 999;
 }
 
@@ -55,33 +55,32 @@ nav {
 }
 
 #menu > li > a:hover {
-  color: var(--trim-gold);
+  color: var(--highlight-gold);
   text-decoration: underline;
 }
 
 #menu > li > a {
-  color: var(--highlight-white);
+  color: var(--background-white);
   text-decoration: none;
 }
 
 main {
-  background-color: var(--secondary-blue);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  /* background-color: var(--background-white);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4); */
   max-width: 90%;
   margin: 0 auto;
 }
 
-#welcomeContainer {
-  filter: drop-shadow(0 0 10px var(--secondary-blue))
-    drop-shadow(0 0 10px var(--trim-gold));
+/* #welcomeContainer {
+  filter: drop-shadow(0 0 10px var(--highlight-gold));
   transition: filter 600ms;
-}
+} */
 
-#welcomeContainer:hover {
-  filter: drop-shadow(0 12px 2px var(--secondary-blue))
-    drop-shadow(0 3px 5px var(--trim-gold));
-  transition: filter 600ms;
-}
+/* #welcomeContainer:hover {
+  filter: drop-shadow(0 12px 2px var(--subtle-grey))
+    drop-shadow(0 3px 5px var(--highlight-gold));
+  transition: filter 600ms; 
+}*/
 
 #welcome {
   display: flex;
@@ -90,7 +89,7 @@ main {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: url(utils/imgs/remy_loz-3S0INpfREQc-unsplash.jpg);
+  background-image: url(utils/imgs/kurt-cotoaga-cqbLg3lZEpk-unsplash.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -98,7 +97,6 @@ main {
 }
 
 .lightText {
-  font-family: "Lora", serif;
   font-size: smaller;
 }
 
@@ -106,5 +104,32 @@ main {
   display: grid;
   width: 100%;
   height: 100vh;
-  background-color: var(--secondary-blue);
+  /* background-color: var(--subtle-grey); */
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+#projectsIntro {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project {
+  background-color: var(--subtle-grey);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%;
+  height: 100%; */
+}
+
+.project:hover {
+  box-shadow: 0 0 5px var(--highlight-gold);
 }
