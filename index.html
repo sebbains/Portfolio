@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="icon" type="image/svg+xml" href="utils/imgs/favicon2.svg">
     <link rel="alternate icon" href="utils/imgs/favicon.ico">
+    <script src="https://kit.fontawesome.com/b51b0e3501.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -15,19 +16,24 @@
                 <li><a href="#welcome">Welcome</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="blog">Blog</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section id="welcome">
             <div class="intro">
-                <h1>
-                    <p class="lightText">Hi, I'm Seb</p>
-                    <p>a Frontend Web Developer</p>
-                    <p class="lightText">from London, UK ;)</p>
-                </h1>
-                <!-- <img src="utils/imgs/icon.svg" alt="icon"> -->
+                <img id="avatar" src="utils/imgs/avatarBlank.svg"/>
+                <div id="details">
+                    <h1>
+                        <p class="lightText">Hi, I'm Seb</p>
+                        <p>a Frontend Web Developer</p>
+                        <p class="lightText">from London, UK</p>
+                    </h1>
+                    <a href="#contact">
+                        <button id="availableBtn"><i class="fas fa-circle-notch fa-spin"></i>Available for hire</button>
+                    </a>
+                </div>                
             </div>
             <div id="continue">
                 <p class="lightText">Learn more of what I do</p>
@@ -83,7 +89,12 @@
 
         </section>
         <section id="contact">
-
+            <div id="contactBtns">
+                <button class="contactBtn"><i class="fas fa-envelope-open"></i>Email</button>
+                <button class="contactBtn"><i class="fab fa-github"></i></i>Github</button>
+                <button class="contactBtn"><i class="fab fa-twitter"></i>Twitter</button>
+                <button class="contactBtn"><i class="fab fa-linkedin"></i></i>LinkedIn</button>
+            </div>
         </section>
 
     </main>

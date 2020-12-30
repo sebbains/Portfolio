@@ -7,6 +7,8 @@
   --highlight-gold: #fcad08;
   --deep-navy: #003049;
   --subtle-grey: #dee2e6;
+  /* default brower font size is 16px, 1rem = 10px */
+  font-size: 62.5%;
 }
 
 /* Base reset */
@@ -23,12 +25,12 @@ html {
   text-align: center;
 }
 
-h1,
-h2 {
-  font-weight: 100;
+h1 {
+  font-size: 4rem;
 }
 
 h2 {
+  font-size: 3rem;
   color: var(--deep-navy);
 }
 
@@ -48,6 +50,7 @@ nav {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  font-size: 1.5rem;
 }
 
 #menu {
@@ -96,6 +99,25 @@ main {
   clip-path: polygon(100% 0, 100% 66%, 50% 100%, 0 66%, 0 0);
 }
 
+.intro {
+  height: 50%;
+  display: flex;
+  align-content: center;
+  justify-items: center;
+}
+
+#details {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  /* align-items: flex-start; */
+  justify-content: center;
+}
+
+#avatar {
+  width: 150px;
+}
+
 .lightText {
   font-size: smaller;
 }
@@ -120,21 +142,36 @@ main {
   align-items: center;
 }
 
-.filterBtn {
+button {
   border: none;
   outline: none;
   padding: 12px 16px;
   cursor: pointer;
+}
+
+#availableBtn {
+  background: none;
+  border: 1px solid var(--highlight-gold);
+  color: var(--highlight-gold);
+  border-radius: 30px;
+  padding: 8px 20px;
+}
+
+.filterBtn {
   background-color: var(--subtle-grey);
 }
 
-.filterBtn:hover {
+button:hover {
   background-color: var(--highlight-gold);
 }
 
 .filterBtn.active {
   background-color: var(--deep-navy);
   color: var(--background-white);
+}
+
+i {
+  margin-right: 15px;
 }
 
 .project {
