@@ -30,6 +30,16 @@ h1 {
   text-shadow: 0 0 1px black;
 }
 
+@media only screen and (max-width: 800px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
 h2 {
   font-size: 3rem;
   color: var(--deep-navy);
@@ -37,6 +47,12 @@ h2 {
 
 p {
   padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 400px) {
+  p {
+    padding-bottom: 0;
+  }
 }
 
 /* Navigation bar */
@@ -104,6 +120,12 @@ main {
   clip-path: polygon(100% 0, 100% 66%, 50% 100%, 0 66%, 0 0);
 }
 
+@media only screen and (max-width: 600px) {
+  #welcome {
+    clip-path: polygon(100% 0, 100% 90%, 50% 100%, 0 90%, 0 0);
+  }
+}
+
 .intro {
   /* height: 50%; */
   display: flex;
@@ -113,6 +135,21 @@ main {
   padding-bottom: 5rem;
 }
 
+@media only screen and (max-width: 800px) {
+  .intro {
+    padding-top: 5rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .intro {
+    padding: 2.5rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+
 #details {
   display: flex;
   flex-direction: column;
@@ -121,12 +158,31 @@ main {
   justify-content: center;
 }
 
+@media only screen and (max-width: 500px) {
+  #details{
+    text-align: center;
+  }
+}
+
 #avatar {
   width: 150px;
 }
 
+@media only screen and (max-width: 500px) {
+  #avatar {
+    width: 10rem;
+    padding-bottom: 1rem;
+  }
+}
+
 .lightText {
   font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .lightText {
+    font-size: 1.5rem;
+  }
 }
 
 #projects {
@@ -200,4 +256,16 @@ i {
 
 .project:hover {
   box-shadow: 0 0 5px var(--highlight-gold);
+}
+
+@media only screen and (max-width: 800px) {
+  #contactBtns {
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    justify-content: space-between;
+  }
+  .contactBtn{
+    width:100%;
+  }
 }
