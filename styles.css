@@ -192,6 +192,8 @@ button:hover {
   margin: 1rem;
   /* height: 20rem; */
   display: none;
+  background-position: center;
+  background-size: cover;
   /* filter: ; */
 }
 
@@ -201,12 +203,30 @@ button:hover {
 
 .project:hover {
   box-shadow: 0 0 5px var(--highlight-gold);
-  background-position: center;
-  background-size: cover;
 }
 
 #rockPaperScissorsProject {
   background-image: url(utils/imgs/RockPaperScissors.png);
+}
+
+#filmDatabaseProject {
+  background-image: url(utils/imgs/filmDatabase.png);
+}
+
+#foodlesProject {
+  background-image: url(utils/imgs/foodles.png);
+}
+
+#budgetCalcProject {
+  background-image: url(utils/imgs/budgetCalc.png);
+}
+
+#currencyConvertorProject {
+  background-image: url(utils/imgs/currencyConvertor.png);
+}
+
+#shoppingListProject {
+  background-image: url(utils/imgs/shoppingList.png);
 }
 
 /* skills section */
