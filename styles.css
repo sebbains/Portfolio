@@ -9,6 +9,9 @@
   --subtle-grey: #dee2e6;
   /* default brower font size is 16px, 1rem = 10px */
   font-size: 62.5%;
+  --start-point: 33%;
+  --trio-width: 33vw;
+  --semi-width: 50vw;
 }
 
 /* Base reset */
@@ -92,12 +95,11 @@ nav {
 main {
   /* background-color: var(--background-white);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4); */
-  max-width: 90%;
+  /* max-width: 90%; */
   margin: 0 auto;
 }
 
 /* welcome section */
-
 #welcome {
   display: flex;
   flex-direction: column;
@@ -108,8 +110,74 @@ main {
   background-image: url(utils/imgs/kurt-cotoaga-cqbLg3lZEpk-unsplash.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  clip-path: polygon(100% 0, 100% 66%, 50% 100%, 0 66%, 0 0);
+  /* background-position: center center; */
+  animation: animatedBackground 20s ease-in-out infinite;
+  clip-path: polygon(
+    4% 0,
+    4% 77%,
+    28% 89%,
+    28% 0,
+    30% 0,
+    30% 90%,
+    50% 100%,
+    70% 90%,
+    70% 0,
+    72% 0,
+    72% 89%,
+    96% 77%,
+    96% 0
+  );
+}
+
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+#cloud1 {
+  width: 150px;
+  height: 85px;
+  border-radius: 50%;
+  filter: url(#filter1);
+  box-shadow: 400px 400px 60px 0px #fff;
+  position: absolute;
+  top: -320px;
+  animation: cloudAnimation 15s linear infinite;
+}
+
+#cloud2 {
+  width: 250px;
+  height: 75px;
+  border-radius: 50%;
+  filter: url(#filter2);
+  box-shadow: 400px 400px 60px 0px #fff;
+  position: absolute;
+  top: 40px;
+  animation: cloudAnimation 15s linear infinite;
+}
+
+@keyframes cloudAnimation {
+  0% {
+    left: calc(-1 * var(--semi-width));
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  60% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    left: var(--semi-width);
+    transform: scale(1.2);
+    opacity: 0.1;
+  }
 }
 
 .intro {

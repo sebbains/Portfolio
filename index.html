@@ -22,6 +22,14 @@
     </header>
     <main>
         <section id="welcome">
+            <div id="cloud1">
+                <svg> 
+                    <filter id="filter1">
+                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="10" />
+                    <feDisplacementMap in="SourceGraphic" scale="180" />
+                    </filter>
+                </svg>
+            </div>
             <div class="intro">
                 <img id="avatar" src="utils/imgs/avatarBlank.svg"/>
                 <div id="details">
@@ -34,6 +42,14 @@
                         <button id="availableBtn"><i class="fas fa-circle-notch fa-spin"></i>Available for hire</button>
                     </a>
                 </div>                
+            </div>
+            <div id="cloud2">
+                <svg> 
+                    <filter id="filter2">
+                    <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="6" />
+                    <feDisplacementMap in="SourceGraphic" scale="120" />
+                    </filter>
+                </svg>
             </div>
             <div id="continue">
                 <p class="standardText">Learn more of what I do</p>
