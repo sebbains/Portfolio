@@ -21,39 +21,59 @@
         </nav>
     </header>
     <main>
-        <section id="welcome">
-            <div id="cloud1">
-                <svg> 
-                    <filter id="filter1">
-                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="10" />
-                    <feDisplacementMap in="SourceGraphic" scale="180" />
-                    </filter>
-                </svg>
+        <section id="welcome" >
+            <div id="welcomeBack"></div>
+            <div id="welcomeImage" class="twoThirds">
+                <div id="cloud1">
+                    <svg> 
+                        <filter id="filter1">
+                        <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="10" />
+                        <feDisplacementMap in="SourceGraphic" scale="180" />
+                        </filter>
+                    </svg>
+                </div>
+                <div class="intro">
+                    <img id="avatar" src="utils/imgs/avatarBlank.svg"/>
+                    <div id="details">
+                        <h1>
+                            <p class="lightText">Hi, I'm Seb</p>
+                            <p>a Frontend Web Developer</p>
+                            <p class="lightText">from London, UK</p>
+                        </h1>
+                        <a href="#contact">
+                            <button id="availableBtn"><i class="fas fa-circle-notch fa-spin"></i>Available for hire</button>
+                        </a>
+                    </div>                
+                </div>
+                <div id="cloud2">
+                    <svg> 
+                        <filter id="filter2">
+                        <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="6" />
+                        <feDisplacementMap in="SourceGraphic" scale="120" />
+                        </filter>
+                    </svg>
+                </div>
+                <div id="continue">
+                    <p class="standardText">Learn more of what I do</p>
+                    <p class="standardText">&darr;</p>
+                </div>
             </div>
-            <div class="intro">
-                <img id="avatar" src="utils/imgs/avatarBlank.svg"/>
-                <div id="details">
-                    <h1>
-                        <p class="lightText">Hi, I'm Seb</p>
-                        <p>a Frontend Web Developer</p>
-                        <p class="lightText">from London, UK</p>
-                    </h1>
-                    <a href="#contact">
-                        <button id="availableBtn"><i class="fas fa-circle-notch fa-spin"></i>Available for hire</button>
-                    </a>
+            <div id="myStory">
+                <div id="myStoryContainer" class="twoThirds">
+                    <div id="myStoryText" class="inner90Container">
+                        <h2>My Story</h2>
+                        <p class="lightText">A short description of the project, it’s challenges and solutions . Lorem ipsum etc etc etc.</p>
+                        <p class="lightText">Front-end dev | ☕ enthusiast | fantasy
+                            ⚽ participator | casual 🎮 and useless 🎿</p>
+                    </div>
                 </div>                
             </div>
-            <div id="cloud2">
-                <svg> 
-                    <filter id="filter2">
-                    <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="6" />
-                    <feDisplacementMap in="SourceGraphic" scale="120" />
-                    </filter>
-                </svg>
-            </div>
-            <div id="continue">
-                <p class="standardText">Learn more of what I do</p>
-                <p class="standardText">&darr;</p>
+        </section>
+        <section id="myActivity">
+            <i class="fab fa-github" id="githubIcon"></i>
+            <h2>My Activity</h2>
+            <div id="contactBtns">
+                <i class="fab fa-github"></i>               
             </div>
         </section>
         <section id="projects">
