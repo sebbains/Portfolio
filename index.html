@@ -69,19 +69,40 @@
                 </div>                
             </div>
         </section>
-        <section id="myActivity">
+        <section id="myActivity" >
             <i class="fab fa-github" id="githubIcon"></i>
-            <h2>My Activity</h2>
-            <div id="contactBtns">
-                <i class="fab fa-github"></i>               
+            <div id="myActivityContainer" class="twoThirds">
+                <h2>My Activity</h2>
+                <div id="activities">
+                    <div class="activity">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="activityNumber">350</span>
+                        <span>contributions this year</span>
+                    </div>
+                    <div class="activity">
+                        <i class="fas fa-folder"></i>
+                        <span class="activityNumber">350</span>
+                        <span>repos</span>
+                    </div>
+                    <div class="activity">
+                        <i class="fas fa-hourglass-end"></i>
+                        <span class="activityNumber">date : time</span>
+                        <span>last public push</span>
+                    </div>
+                    <div class="activity">
+                        <i class="fas fa-paper-plane"></i>
+                        <span class="activityNumber">350</span>
+                        <span>overall contributions</span>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="projects">
-            <div class="intro" id="projectsIntro">
-                <h2>
-                    <p>My Recent Work</p>
-                    <p class="standardText">Here are a few development projects I've worked on recently.</p>
-                </h2>
+            <div id="projectsContainer" class="twoThirds">
+                <div id="projectsIntro" class="inner90Container">
+                    <h2>My Work</h2>
+                    <p>Here are a few development projects I've worked on recently.</p>    
+                </div>
                 <div id="filterBtns">
                     <button class="filterBtn active">All</button>
                     <button class="filterBtn">Javascript</button>
@@ -90,41 +111,34 @@
                     <button class="filterBtn">Tutorial</button>
                 </div>
             </div>
-            <div class="project javascript self" id="rockPaperScissorsProject">
-                <h3>Rock Paper Scissors</h3>
-                <p>A short paragraph describing the game.</p>
-                <a href="https://sebbains.github.io/Ultimate-RPS-Game/" target="_blank"><i class="fas fa-link"></i>Demo</a>
-                <a href="https://github.com/sebbains/Ultimate-RPS-Game" target="_blank"><i class="fab fa-github"></i>Github</a>
-            </div>
-            <div class="project javascript scrimba-challenge" id="filmDatabaseProject">
-                <h3>Film Database</h3>
-                <p>A short paragraph describing the game.</p>
-                <a href="https://sebbains.github.io/Ultimate-RPS-Game/" target="_blank"><i class="fas fa-link"></i>Demo</a>
-                <a href="https://github.com/sebbains/Ultimate-RPS-Game" target="_blank"><i class="fab fa-github"></i>Github</a>
-            </div>
-            <div class="project javascript scrimba-challenge api" id="foodlesProject">
-                <h3>Foodles</h3>
-                <p>A short paragraph describing the game.</p>
-                <a href="https://sebbains.github.io/Ultimate-RPS-Game/" target="_blank"><i class="fas fa-link"></i>Demo</a>
-                <a href="https://github.com/sebbains/Ultimate-RPS-Game" target="_blank"><i class="fab fa-github"></i>Github</a>
-            </div>
-            <div class="project javascript scrimba-challenge api" id="budgetCalcProject">
-                <h3>Budget Calculator</h3>
-                <p>A short paragraph describing the game.</p>
-                <a href="https://sebbains.github.io/Ultimate-RPS-Game/" target="_blank"><i class="fas fa-link"></i>Demo</a>
-                <a href="https://github.com/sebbains/Ultimate-RPS-Game" target="_blank"><i class="fab fa-github"></i>Github</a>
-            </div>
-            <div class="project javascript scrimba-challenge" id="currencyConvertorProject">
-                <h3>Currency Convertor</h3>
-                <p>A short paragraph describing the game.</p>
-                <a href="https://sebbains.github.io/Ultimate-RPS-Game/" target="_blank"><i class="fas fa-link"></i>Demo</a>
-                <a href="https://github.com/sebbains/Ultimate-RPS-Game" target="_blank"><i class="fab fa-github"></i>Github</a>
-            </div>
-            <div class="project javascript" id="shoppingListProject">
-                <h3>Shopping List</h3>
-                <p>A short paragraph describing the game.</p>
-                <a href="https://sebbains.github.io/Ultimate-RPS-Game/" target="_blank"><i class="fas fa-link"></i>Demo</a>
-                <a href="https://github.com/sebbains/Ultimate-RPS-Game" target="_blank"><i class="fab fa-github"></i>Github</a>
+            <div id="projectList" class="fourSixths">
+                <article class="inner90Container project javascript scrimba-challenge" id="filmDatabaseProject">
+                    <img class="projectImage" src="utils/imgs/filmDatabase.png" alt="Film Dashboard">
+                    <div class="projectDetails">
+                        <h3 class="projectTitle">Film Dashboard</h3>
+                        <span class="projectDescription">A short description of the project, it’s challenges and solutions . Lorem ipsum etc etc etc.</span>
+                        <h5>Check it Out</h5>
+                        <div class="projectLinks">
+                            <a href="https://sebbains.github.io/Film-Dashboard/" target="_blank"><i class="fas fa-link">demo</i></a>
+                            <a href="https://github.com/sebbains/Film-Dashboard" target="_blank"><i class="fas fa-code">github</i></a>
+                        </div>
+                        <h5>Built with</h5>
+                        <div class="projectTools">
+                            <div class="html5 projectTool">
+                                <i class="fab fa-html5"></i>
+                                <span>html5</span>
+                            </div>
+                            <div class="css3 projectTool">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>css3</span>
+                            </div>
+                            <div class="javascript projectTool">
+                                <i class="fab fa-js"></i>
+                                <span>javascript</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
         <section id="skills">

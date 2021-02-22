@@ -8,11 +8,6 @@
   --deep-navy: #003049;
   --subtle-grey: #e7e7e7e7;
   --dark-grey: #353535;
-  /* default brower font size is 16px, 1rem = 10px */
-  font-size: 62.5%;
-  --start-point: 33%;
-  --trio-width: 33vw;
-  --semi-width: 50vw;
 }
 
 /* Base reset */
@@ -24,9 +19,16 @@
 html {
   box-sizing: border-box;
   font-family: "Lora", serif;
+  /* default brower font size is 16px, 1rem = 10px */
+  font-size: 62.5%;
+  line-height: 1.5rem;
   color: var(--background-white);
   background-color: var(--background-white);
   text-align: start;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 h1 {
@@ -34,10 +36,27 @@ h1 {
   text-shadow: 0 0 1px black;
 }
 
+h2,
+h3,
+h4,
+h5 {
+  text-transform: uppercase;
+}
+
 h2 {
   font-size: 3rem;
-  color: var(--deep-navy);
-  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
 }
 
 p {
@@ -46,7 +65,7 @@ p {
 }
 
 i {
-  margin-right: 1.5rem;
+  font-size: 3rem;
 }
 
 .lightText {
@@ -107,6 +126,11 @@ main {
   margin: 0 auto;
 }
 
+.fourSixths {
+  max-width: calc(4 / 6 * 100);
+  margin: 0 auto;
+}
+
 .inner90Container {
   max-width: 90%;
   margin: 0 auto;
@@ -145,6 +169,20 @@ main {
 @media only screen and (max-width: 1400px) {
   #welcomeImage {
     background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #welcomeImage {
+    /* clip-path: polygon(0% 0, 0% 70%, 50% 100%, 100% 70%, 100% 0); */
+    height: 50vh;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #welcomeImage {
+    clip-path: polygon(0% 0, 0% 70%, 50% 100%, 100% 70%, 100% 0);
+    height: 40vh;
   }
 }
 
@@ -254,42 +292,84 @@ main {
 
 /* My Activity*/
 #githubIcon {
-  position: relative;
-  font-size: 50px;
-  top: -50%;
+  position: absolute;
+  top: -2.5rem;
+  left: calc(50% - 2.5rem);
   color: var(--dark-grey);
+  background-color: #e7e7e7;
+  border-radius: 50%;
+  font-size: 5rem;
+  width: calc(5rem - 2px);
+  height: calc(5rem - 2px);
 }
 
 #myActivity {
   background-color: var(--dark-grey);
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   color: var(--background-white);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  position: relative;
 }
 
-/* project section */
-#projects {
-  display: grid;
+#myActivityContainer {
   width: 100%;
-  height: 100vh;
-  /* background-color: var(--subtle-grey); */
-  grid-template-columns: repeat(3, 1fr);
-  /* align-items: center; */
-  /* justify-content: center; */
-}
-
-#projectsIntro {
-  grid-column-start: 1;
-  grid-column-end: 4;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
+
+#activities {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#activities :last-child {
+  border-right: none;
+}
+
+.activity {
+  text-align: center;
+  width: 25%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-right: 1px var(--background-white) dotted;
+}
+
+.activityNumber {
+  font-size: 2rem;
+}
+
+/* My Work */
+#projects {
+  color: var(--dark-grey);
+  width: 100%;
+  height: 100vh;
+}
+
+#projectsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--background-white);
+  width: 100%;
+  height: 30vh;
+  color: var(--dark-grey);
+}
+
+#projectsIntro {
+  width: 100%;
 }
 
 button {
@@ -322,18 +402,40 @@ button:hover {
 
 .project {
   background-color: var(--subtle-grey);
-  /* border-radius: 20px; */
+  height: 60vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  display: none;
+  /* background-position: center;
+  background-size: cover; */
+  /* filter: ; */
+}
+
+.projectImage,
+.projectDetails {
+  width: 33%;
+  height: 80%;
+}
+
+.projectDetails {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* align-items: center; */
-  /* width: 100%;*/
-  margin: 1rem;
-  /* height: 20rem; */
-  display: none;
-  background-position: center;
-  background-size: cover;
-  /* filter: ; */
+}
+
+.projectLinks,
+.projectTools {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.projectTool {
+  display: flex;
+  flex-direction: column;
 }
 
 .selected {
@@ -344,7 +446,7 @@ button:hover {
   box-shadow: 0 0 5px var(--highlight-gold);
 }
 
-#rockPaperScissorsProject {
+/* #rockPaperScissorsProject {
   background-image: url(utils/imgs/RockPaperScissors.png);
 }
 
@@ -366,7 +468,7 @@ button:hover {
 
 #shoppingListProject {
   background-image: url(utils/imgs/shoppingList.png);
-}
+} */
 
 /* skills section */
 
