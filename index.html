@@ -76,23 +76,23 @@
                 <div id="activities">
                     <div class="activity">
                         <i class="fas fa-chart-line"></i>
+                        <span class="activityText">commits this year</span>
                         <span class="activityNumber">350</span>
-                        <span>contributions this year</span>
                     </div>
                     <div class="activity">
                         <i class="fas fa-folder"></i>
-                        <span class="activityNumber">350</span>
-                        <span>repos</span>
+                        <span class="activityText">created repos</span>
+                        <span class="activityNumber">50</span>
                     </div>
                     <div class="activity">
                         <i class="fas fa-hourglass-end"></i>
-                        <span class="activityNumber">date : time</span>
-                        <span>last public push</span>
+                        <span class="activityText">last push</span>
+                        <span class="activityNumber">12:30<br /><span class="activityNumberDate">today</span></span>
                     </div>
                     <div class="activity">
                         <i class="fas fa-paper-plane"></i>
-                        <span class="activityNumber">350</span>
-                        <span>overall contributions</span>
+                        <span class="activityText">overall commits</span>
+                        <span class="activityNumber">350</span>                        
                     </div>
                 </div>
             </div>
@@ -111,8 +111,36 @@
                     <button class="filterBtn">Tutorial</button>
                 </div>
             </div>
-            <div id="projectList" class="fourSixths">
-                <article class="inner90Container project javascript scrimba-challenge" id="filmDatabaseProject">
+            <div id="projectList" class="twoThirds">
+                <i class="fas fa-chevron-circle-left"></i>
+                <article class="project javascript scrimba-challenge" id="filmDatabaseProject">
+                    <img class="projectImage" src="utils/imgs/filmDatabase.png" alt="Film Dashboard">
+                    <div class="projectDetails">
+                        <h3 class="projectTitle">Film Dashboard</h3>
+                        <p class="projectDescription">A short description of the project, it’s challenges and solutions . Lorem ipsum etc etc etc.</p>
+                        <h5>Check it Out</h5>
+                        <div class="projectLinks">
+                            <a href="https://sebbains.github.io/Film-Dashboard/" target="_blank"><i class="fas fa-link"></i><p>demo</p></a>
+                            <a href="https://github.com/sebbains/Film-Dashboard" target="_blank"><i class="fas fa-code"></i><p>code</p></a>
+                        </div>
+                        <h5>Built with</h5>
+                        <div class="projectTools">
+                            <div class="html5 projectTool">
+                                <i class="fab fa-html5"></i>
+                                <p>html5</p>
+                            </div>
+                            <div class="css3 projectTool">
+                                <i class="fab fa-css3-alt"></i>
+                                <p>css3</p>
+                            </div>
+                            <div class="javascript projectTool">
+                                <i class="fab fa-js"></i>
+                                <p>javascript</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="project javascript scrimba-challenge" id="filmDatabaseProject">
                     <img class="projectImage" src="utils/imgs/filmDatabase.png" alt="Film Dashboard">
                     <div class="projectDetails">
                         <h3 class="projectTitle">Film Dashboard</h3>
@@ -139,10 +167,25 @@
                         </div>
                     </div>
                 </article>
+                <i class="fas fa-chevron-circle-right"></i>
+            </div>
+            <div id="scrollBtns">
+                <button class="scrollBtn active"></button>
+                <button class="scrollBtn"></button>
+                <button class="scrollBtn"></button>
+                <button class="scrollBtn"></button>
+                <button class="scrollBtn"></button>
             </div>
         </section>
-        <section id="skills">
-
+        <section id="skillsAndTools">
+            <!-- <div id="skillsAndToolsBack"></div> -->
+            <div id="skillsAndToolsSelection">
+                <div id="mySkills"><h2>My Skills</h2></div>
+                <div id="myTools"><h2>My Tools</h2></div>
+            </div>
+            <div id="skillsAndToolsContainer" class="twoThirds">
+                <p>example</p>
+            </div>
         </section>
         <section id="contact">
             <div id="contactBtns">
