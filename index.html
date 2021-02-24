@@ -77,22 +77,25 @@
                     <div class="activity">
                         <i class="fas fa-chart-line"></i>
                         <span class="activityText">commits this year</span>
-                        <span class="activityNumber">350</span>
+                        <span id="commitsThisYear" class="activityNumber">000</span>
                     </div>
                     <div class="activity">
                         <i class="fas fa-folder"></i>
                         <span class="activityText">created repos</span>
-                        <span class="activityNumber">50</span>
+                        <span id="createdRepos" class="activityNumber">50</span>
                     </div>
                     <div class="activity">
                         <i class="fas fa-hourglass-end"></i>
                         <span class="activityText">last push</span>
-                        <span class="activityNumber">12:30<br /><span class="activityNumberDate">today</span></span>
+                        <div class="pushDateTime">
+                            <span id="lastPushTime" class="activityNumber">12:30</span>
+                            <span id="lastPushDay" class="activityNumberDate">today</span>
+                        </div>                        
                     </div>
                     <div class="activity">
                         <i class="fas fa-paper-plane"></i>
                         <span class="activityText">overall commits</span>
-                        <span class="activityNumber">350</span>                        
+                        <span id="overallCommits" class="activityNumber">000</span>                        
                     </div>
                 </div>
             </div>
@@ -178,13 +181,47 @@
             </div>
         </section>
         <section id="skillsAndTools">
-            <!-- <div id="skillsAndToolsBack"></div> -->
-            <div id="skillsAndToolsSelection">
-                <div id="mySkills"><h2>My Skills</h2></div>
-                <div id="myTools"><h2>My Tools</h2></div>
+            <div id="skillsAndToolsSelection" class="twoThirds">
+                <div id="mySkills">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>My Skills</h3>
+                </div>
+                <div id="myTools">
+                    <i class="fas fa-tools"></i>
+                    <h3>My Tools</h3>
+                </div>
             </div>
-            <div id="skillsAndToolsContainer" class="twoThirds">
-                <p>example</p>
+            <div id="skillsAndToolsDetails">
+                <div id="skillsAndToolsContainer" class="twoThirds">
+                    <div class="skill">
+                        <i class="fab fa-html5"></i>
+                        <h5>html5</h5>
+                        <ul class="fa-ul skillDetails">
+                            <li><span class="fa-li"><i class="cert fas fa-graduation-cap"></i></span>Responsive Web Design Certification<span class="body">freeCodeCamp</span></li>
+                            <li><span class="fa-li"><i class="cert fas fa-graduation-cap"></i></span>HTML skill assessment badge<span class="body">LinkedIn</span></li>
+                        </ul>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-css3-alt"></i>
+                        <h5>css3</h5>
+                        <ul class="fa-ul skillDetails">
+                            <li><span class="fa-li"><i class="cert fas fa-graduation-cap"></i></span>Responsive Web Design Certification<span class="body">freeCodeCamp</span></li>
+                            <li><span class="fa-li"><i class="cert fas fa-graduation-cap"></i></span>CSS skill assessment badge<span class="body">LinkedIn</span></li>
+                        </ul>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-js"></i>
+                        <h5>javascript</h5>
+                        <ul class="fa-ul skillDetails">
+                            <li><span class="fa-li"><i class="cert fas fa-graduation-cap"></i></span>JavaScript Algorithms and Data Structures Certification<span class="body">freeCodeCamp</span></li>
+                            <li><span class="fa-li"><i class="cert fas fa-graduation-cap"></i></span>JavaScript Essential Training (2017)<span class="body">LinkedIn</span></li>
+                            <li><span class="fa-li"><i class="cert fas fa-graduation-cap"></i></span>JavaScript skill assessment badge<span class="body">LinkedIn</span></li>
+                            <li><span class="fa-li"><i class="cert fas fa-graduation-cap"></i></span>JavaScriptmas Challenge Completion<span class="body">Scrimba</span></li>
+                            <li><span class="fa-li"><i class="award fas fa-award"></i></span>2nd - Weekly Challenge<span class="body">Scrimba</span></li>
+                            <li><span class="fa-li"><i class="award fas fa-award"></i></span>3rd - Weekly Challenge<span class="body">Scrimba</span></li>
+                        </ul>
+                    </div>                    
+                </div>
             </div>
         </section>
         <section id="contact">

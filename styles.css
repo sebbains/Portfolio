@@ -6,7 +6,7 @@
   --background-white: #faf9f9;
   --highlight-gold: #fcad08;
   --deep-navy: #003049;
-  --subtle-grey: #e7e7e7e7;
+  --subtle-grey: #e7e7e7;
   --dark-grey: #353535;
 }
 
@@ -366,6 +366,15 @@ main {
   text-transform: uppercase;
   font-size: 0.8rem;
   letter-spacing: 0.7rem;
+  position: absolute;
+  top: 2.5rem;
+}
+
+.pushDateTime {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
 }
 
 /* My Work */
@@ -535,23 +544,75 @@ button:hover {
 }
 
 #skillsAndToolsSelection {
-  height: 30vh;
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  top: 10vh;
 }
 
-#mySkills {
-  width: 25%;
-  height: 100%;
+#mySkills,
+#myTools {
+  width: 20rem;
+  height: 20rem;
   background-color: var(--highlight-gold);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-#skillsAndToolsBack {
+#myTools {
+  background-color: var(--subtle-grey);
+}
+
+#skillsAndToolsDetails {
   background-color: var(--dark-grey);
-  height: 15vh;
 }
 
 #skillsAndToolsContainer {
-  background-color: var(--dark-grey);
-  /* height: 70vh; */
+  /* background-color: var(--dark-grey); */
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#skillsAndToolsContainer :last-child {
+  border-right: none;
+}
+
+.skill,
+.tool {
+  text-align: center;
+  padding: 0 2%;
+  width: 33%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-right: 1px var(--background-white) dotted;
+}
+
+.skill i {
+  font-size: 5rem;
+}
+
+.skillDetails {
+  width: 40%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+li > span > i.cert,
+i.award {
+  font-size: 2rem;
 }
 
 /* contact section */
