@@ -354,6 +354,7 @@ main {
   transform: scale(1, 1.25);
   font-size: 2rem;
   height: 3rem;
+  transition: all 5s ease;
 }
 
 .activityText {

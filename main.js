@@ -50,6 +50,7 @@ async function getEventStats() {
     if(!response.ok) {
         throw new Error(`HTTP events error! status: ${response.status}`);
     } else {
+        // last push event
         const data = await response.json();
         const lastEventDate = await data[0].created_at;
         const lastEventDateObj = dateSplitter(new Date (lastEventDate));
@@ -59,6 +60,27 @@ async function getEventStats() {
         const isToday = (lastEventDateObj.date === currentDateObj.date && lastEventDateObj.day === currentDateObj.day)? true: false;
         const day = isToday? 'today' : `${lastEventDateObj.day}`;
         lastPushDay.innerText = day;
+
+        // count number across all pages
+        const headerLinks = response.headers.get("link");
+        const pageLinks = headerLinks.split(",");
+        const lastPage = pageLinks[1];
+        const lastPageUrl = lastPage.split(";")[0];
+        console.log(lastPageUrl)
+    }
+}
+
+// get github events stats
+async function getNewEventStats() {
+    const url = 'https://api.github.com/user/3295577/events?page=4%3E';
+    const response = await fetch(url);
+
+    if(!response.ok) {
+        throw new Error(`HTTP events error! status: ${response.status}`);
+    } else {
+        // last push event
+        const data = await response.json();
+        console.log(data.length);
     }
 }
 
