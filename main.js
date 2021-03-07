@@ -4,6 +4,7 @@ const lastPushTime = document.querySelector('#lastPushTime');
 const lastPushDay = document.querySelector('#lastPushDay');
 const createdRepos = document.querySelector('#createdRepos');
 const last30days = document.querySelector('#last30events');
+const estimatedCoffeesThisYear = document.querySelector('#estimatedCoffees');
 const githubPages = [];
 
 // default show all projects on page load
@@ -51,8 +52,6 @@ async function getEventStats(url) {
         throw new Error(`HTTP events error! status: ${response.status}`);
     } else {
         const data = await response.json();
-       
-
         // get important page events info
         const githubPageInfo = getGithubPageInfo(data);
         // add to array 
@@ -170,6 +169,13 @@ getEventStats(url)
         const isToday = (lastEventDateObj.date === currentDateObj.date && lastEventDateObj.day === currentDateObj.day)? true: false;
         const day = isToday? 'today' : `${lastEventDateObj.day}`;
         lastPushDay.innerText = day;
+
+        // estimate coffees
+        const yearDate = new Date(new Date().getFullYear(), 0, 1);
+        const currentDate = new Date();
+        const diffDays = parseInt((currentDate - yearDate) / (1000 * 60 * 60 * 24), 10);
+        const estimatedCoffees = diffDays * 2;
+        estimatedCoffeesThisYear.innerText = estimatedCoffees;
     })
     .catch(e => console.log("error fetching github stats " + e.message));
 
