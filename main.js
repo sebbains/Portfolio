@@ -43,10 +43,9 @@ btnList.forEach(btn => {
 });
 
 // get github events stats
-async function getEventStats() {
-    const url = 'https://api.github.com/users/sebbains/events';
+async function getEventStats(url) {
+    console.log(url)
     const response = await fetch(url);
-
     if(!response.ok) {
         throw new Error(`HTTP events error! status: ${response.status}`);
     } else {
@@ -57,36 +56,39 @@ async function getEventStats() {
         const time = `${lastEventDateObj.hour} : ${lastEventDateObj.mins}`;
         lastPushTime.innerText = time;
 
-        // get important page events info
-        const [lastPushEvent, pageEndEvent, afterDateLimitEventsTotal] = getGithubPageInfo(data);
-        console.log(lastPushEvent, pageEndEvent, afterDateLimitEventsTotal);
-
         // compare to today
         const currentDateObj = dateSplitter(new Date);
         const isToday = (lastEventDateObj.date === currentDateObj.date && lastEventDateObj.day === currentDateObj.day)? true: false;
         const day = isToday? 'today' : `${lastEventDateObj.day}`;
         lastPushDay.innerText = day;
-        // data.forEach(dataItem => console.log(dataItem.created_at, dataItem.type))
-        // console.log(data);
 
-        // get end item
-        const endItem = data[29];
-        console.log(endItem.created_at);
+        // get important page events info
+        const [lastPushEvent, pageEndEvent, afterDateLimitEventsTotal] = getGithubPageInfo(data);
+        console.log(lastPushEvent, pageEndEvent, afterDateLimitEventsTotal);
 
-        // split header links
-        const headerLinks = response.headers.get("link");
-        const pageLinks = headerLinks.split(",");
-        const nextPage = pageLinks[0];
-        const nextPageUrl = nextPage.split(";")[0].replace("<","").replace(">","");
-        const lastPage = pageLinks[1];
-        const lastPageUrl = lastPage.split(";")[1].replace("<","").replace(">","");
-        return nextPageUrl;
+        // if 30 items within date limit then get next page
+        if (afterDateLimitEventsTotal === 30){
+            console.log("more than 30 matched date limit, returning next page URL");
+            // get headers and links
+            const headerLinks = response.headers.get("link");
+            const pageLinks = headerLinks.split(",");
+            const pageUrls = pageLinks.map(page => {
+                const urlParts = page.split(";");
+                return {
+                    url : urlParts[0].replace("<","").replace(">",""),
+                    rel : urlParts[1]
+                }
+            })
+            const nextPage = pageUrls.filter(url => {
+                if( url.rel.includes("next")){
+                    return url;
+                }
+            })
+            const nextPageUrl = nextPage[0].url;
+            console.log(nextPageUrl)
+            return nextPageUrl
+        }
     }
-}
-
-// check github event date
-function checkEventDate(githubEvent){
-
 }
 
 // break github array into required info
@@ -95,7 +97,7 @@ function getGithubPageInfo(githubArray){
     const pageEndEvent = githubArray[29];
 
     // filter last 30 days
-    const dateLimit = 30;
+    const dateLimit = 60;
     const dateLimitDate = new Date();
     dateLimitDate.setDate(dateLimitDate.getDate() - dateLimit);
     // refactor to reduce unless require individual events
@@ -108,10 +110,9 @@ function getGithubPageInfo(githubArray){
     return [lastPushEvent, pageEndEvent, afterDateLimitEventsTotal];
 }
 
-// loop & log github page events
-async function logGithubEvents(url) {
+// get github events stats
+async function getEventStats2(url) {
     const response = await fetch(url);
-
     if(!response.ok) {
         throw new Error(`HTTP events error! status: ${response.status}`);
     } else {
@@ -169,9 +170,14 @@ async function getRepoStats() {
     }
 }
 
-getEventStats()
-    .then(value => {
-        logGithubEvents(value);
+
+const url = 'https://api.github.com/users/sebbains/events';
+getEventStats(url)
+    .then(nextPageUrl => {
+        getEventStats(nextPageUrl);
+    })
+    .then(nextPageUrl => {
+        getEventStats(nextPageUrl);
     })
     .catch(e => console.log("error fetching github stats " + e.message));
 
