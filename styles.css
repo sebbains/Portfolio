@@ -371,11 +371,12 @@ main {
   top: 2.5rem;
 }
 
-.pushDateTime {
+.activityNumberContainer {
   display: flex;
   flex-direction: column;
   position: relative;
   align-items: center;
+  width: 100%;
 }
 
 /* My Work */
