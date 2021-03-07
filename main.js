@@ -3,6 +3,8 @@ const btnList = document.querySelectorAll('.filterBtn');
 const lastPushTime = document.querySelector('#lastPushTime');
 const lastPushDay = document.querySelector('#lastPushDay');
 const createdRepos = document.querySelector('#createdRepos');
+const last30days = document.querySelector('#last30events');
+const githubPages = [];
 
 // default show all projects on page load
 applyFilter("all");
@@ -44,31 +46,21 @@ btnList.forEach(btn => {
 
 // get github events stats
 async function getEventStats(url) {
-    console.log(url)
     const response = await fetch(url);
     if(!response.ok) {
         throw new Error(`HTTP events error! status: ${response.status}`);
     } else {
-        // last push event
         const data = await response.json();
-        const lastEventDate = await data[0].created_at;
-        const lastEventDateObj = dateSplitter(new Date (lastEventDate));
-        const time = `${lastEventDateObj.hour} : ${lastEventDateObj.mins}`;
-        lastPushTime.innerText = time;
-
-        // compare to today
-        const currentDateObj = dateSplitter(new Date);
-        const isToday = (lastEventDateObj.date === currentDateObj.date && lastEventDateObj.day === currentDateObj.day)? true: false;
-        const day = isToday? 'today' : `${lastEventDateObj.day}`;
-        lastPushDay.innerText = day;
+       
 
         // get important page events info
-        const [lastPushEvent, pageEndEvent, afterDateLimitEventsTotal] = getGithubPageInfo(data);
-        console.log(lastPushEvent, pageEndEvent, afterDateLimitEventsTotal);
+        const githubPageInfo = getGithubPageInfo(data);
+        // add to array 
+        githubPages.push(githubPageInfo);
 
         // if 30 items within date limit then get next page
-        if (afterDateLimitEventsTotal === 30){
-            console.log("more than 30 matched date limit, returning next page URL");
+        if (githubPageInfo.afterDateLimitEventsTotal === 30){
+            console.log("more than 30 events matched date limit, grabbing next page URL");
             // get headers and links
             const headerLinks = response.headers.get("link");
             const pageLinks = headerLinks.split(",");
@@ -85,8 +77,12 @@ async function getEventStats(url) {
                 }
             })
             const nextPageUrl = nextPage[0].url;
-            console.log(nextPageUrl)
-            return nextPageUrl
+            // call again with next page url
+            getEventStats(nextPageUrl);
+        } else {
+            // calculate total events within date limit
+            const totalEventsWithinLimit = githubPages.reduce((total, page) => total += page.afterDateLimitEventsTotal, 0);
+            last30days.innerText = totalEventsWithinLimit; 
         }
     }
 }
@@ -97,7 +93,7 @@ function getGithubPageInfo(githubArray){
     const pageEndEvent = githubArray[29];
 
     // filter last 30 days
-    const dateLimit = 60;
+    const dateLimit = 30;
     const dateLimitDate = new Date();
     dateLimitDate.setDate(dateLimitDate.getDate() - dateLimit);
     // refactor to reduce unless require individual events
@@ -107,19 +103,7 @@ function getGithubPageInfo(githubArray){
         };
     })
     const afterDateLimitEventsTotal = afterDateLimitEvents.length;
-    return [lastPushEvent, pageEndEvent, afterDateLimitEventsTotal];
-}
-
-// get github events stats
-async function getEventStats2(url) {
-    const response = await fetch(url);
-    if(!response.ok) {
-        throw new Error(`HTTP events error! status: ${response.status}`);
-    } else {
-        // last push event
-        const data = await response.json();
-        console.log(data);
-    }
+    return {lastPushEvent, pageEndEvent, afterDateLimitEventsTotal};
 }
 
 // split js date into useable obj
@@ -173,11 +157,19 @@ async function getRepoStats() {
 
 const url = 'https://api.github.com/users/sebbains/events';
 getEventStats(url)
-    .then(nextPageUrl => {
-        getEventStats(nextPageUrl);
-    })
-    .then(nextPageUrl => {
-        getEventStats(nextPageUrl);
+    .then(() => {
+        // populate page with first faetch call info
+        // last push event
+        const lastEventDate = githubPages[0].lastPushEvent.created_at;
+        const lastEventDateObj = dateSplitter(new Date (lastEventDate));
+        const time = `${lastEventDateObj.hour} : ${lastEventDateObj.mins}`;
+        lastPushTime.innerText = time;
+
+        // compare to today
+        const currentDateObj = dateSplitter(new Date);
+        const isToday = (lastEventDateObj.date === currentDateObj.date && lastEventDateObj.day === currentDateObj.day)? true: false;
+        const day = isToday? 'today' : `${lastEventDateObj.day}`;
+        lastPushDay.innerText = day;
     })
     .catch(e => console.log("error fetching github stats " + e.message));
 
