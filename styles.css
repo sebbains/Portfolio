@@ -4,6 +4,7 @@
 /* Custom properties/variables  */
 :root {
   --background-white: #faf9f9;
+  --back-white-semi: rgba(250, 249, 249, 0.5);
   --highlight-gold: #fcad08;
   --deep-navy: #003049;
   --subtle-grey: #e7e7e7;
@@ -14,6 +15,10 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 html {
@@ -86,7 +91,7 @@ nav {
   position: fixed;
   width: 100%;
   height: 50px;
-  /* background-color: var(--subtle-grey); */
+  background-color: var(--back-white-semi);
   /* box-shadow: 0 2px 0 var(--highlight-red); */
   z-index: 999;
 }
@@ -104,13 +109,20 @@ nav {
   list-style: none;
 }
 
-#menu > li > a:hover {
+#menu > li {
+  background-color: var(--back-white-semi);
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+}
+
+#menu > li > a:hover,
+a:hover > i.socialNav {
   color: var(--highlight-gold);
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 #menu > li > a {
-  color: var(--background-white);
+  color: var(--dark-grey);
   text-decoration: none;
 }
 
@@ -272,7 +284,7 @@ main {
 #myStory {
   background-color: var(--subtle-grey);
   width: 100%;
-  height: 30vh;
+  height: 50vh;
   color: var(--dark-grey);
   display: flex;
   flex-direction: column;
@@ -605,11 +617,17 @@ button:hover {
 }
 
 .skillDetails {
-  width: 40%;
+  width: 80%;
   height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+.skillDetails > li {
+  background-color: var(--highlight-gold);
+  border-radius: 0.5rem;
+  height: 4rem;
 }
 
 li > span > i.cert,
@@ -619,10 +637,21 @@ i.award {
 
 /* contact section */
 
-#contact {
+footer {
   background-color: var(--highlight-gold);
-  height: 5rem;
+  height: 10rem;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+
+.contactBtns {
+  width: 33.33%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+i.social {
+  color: var(--dark-grey);
+  font-size: 2.5rem;
 }
