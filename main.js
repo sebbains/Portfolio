@@ -161,7 +161,8 @@ getEventStats(url)
         // last push event
         const lastEventDate = githubPages[0].lastPushEvent.created_at;
         const lastEventDateObj = dateSplitter(new Date (lastEventDate));
-        const time = `${lastEventDateObj.hour} : ${lastEventDateObj.mins}`;
+        const mins = lastEventDateObj.mins < 10? `0 ${lastEventDateObj.mins}`: lastEventDateObj.mins;
+        const time = `${lastEventDateObj.hour} : ${mins}`;
         lastPushTime.innerText = time;
 
         // compare to today
