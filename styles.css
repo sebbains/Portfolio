@@ -672,7 +672,7 @@ button:hover {
 
 #skillsAndToolsContainer {
   /* background-color: var(--dark-grey); */
-  height: 50vh;
+  height: 80vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -688,7 +688,7 @@ button:hover {
   text-align: center;
   padding: 0 2%;
   width: 33%;
-  height: 40%;
+  /* height: 40%; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -726,7 +726,7 @@ i.award {
   align-content: center;
   background-color: black;
   border-radius: var(--button-radius);
-  /* height: 4rem; */
+  height: 6rem;
   margin: 0 1rem;
   padding: 0.25rem 2rem;
   display: flex;
@@ -735,9 +735,18 @@ i.award {
   margin-bottom: 1rem;
 }
 
+hr {
+  width: 50%;
+}
+
 .certDetails,
 .awardDetails {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .certDetails > .cert,
